@@ -1,5 +1,5 @@
 {
-  "name": "rutas",
+  "name": "guitarra_carrito",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -11,8 +11,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "vue": "^3.3.11",
-    "vue-router": "^4.2.5"
+    "vue": "^3.3.11"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",

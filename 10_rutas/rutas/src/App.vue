@@ -1,130 +1,83 @@
-<template>
-    <header>
-        <h1 class="nombre-sitio">Tienda <span>Muebles</span></h1>
-    </header>
-    <div class="contenedor-navegacion">
-        <nav class=" nav-principal contenedor">
-            <a @click="ir('/Inicio')">Inicio</a>
-            <a @click="ir('/Cliente')">Clientes</a>
-            <a @click="ir('/Producto')">Productos</a>
-            <a href="blog.html">....</a>
-            <a href="galeria.html">.....</a>
-            <a @click="ir('/Contacto')">Contacto</a>
-        </nav>
-    </div>
-    <RouterView />
-</template>
-<script setup >
-import { useRouter } from 'vue-router';
-const router = useRouter();
-const ir =(url) =>{
-    router.push({ path: url })
-}
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from './components/HelloWorld.vue'
 </script>
 
+<template>
+  <header>
+      <nav>
+        <RouterLink to="/">Inicio</RouterLink>
+        <RouterLink to="/nosotros">Nosotros</RouterLink>
+        <RouterLink to="/contactanos">Contactanos</RouterLink>
+        <RouterLink to="/blog">Blog</RouterLink>
+      </nav>
+  </header>
+
+  <RouterView />
+</template>
+
 <style scoped>
-a {
-    text-decoration: none;
-    color: #fff;
-}
-a:hover {
-    text-decoration: none;
-    color: #7db5db;
-}
-h1,
-h2,
-h3 {
-    margin: 0 0 5rem 0;
-}
-h1 {
-    font-size: 5rem;
-}
-h2 {
-    font-size: 4rem;
+header {
+  line-height: 1.5;
+  max-height: 100vh;
+  width: 100%;
 }
 
-h3 {
-    font-size: 3rem;
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
 }
 
-/** Header y Navegacion **/
-.contenedor {
-    max-width: 120rem;
-    margin: 0 auto;
-
-
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+nav a.router-link-exact-active {
+  color: var(--color-text);
 }
 
-.nombre-sitio {
-    margin-top: 5rem;
-    text-align: center;
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
 }
 
-.nombre-sitio span {
-    color: #037bc0;
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
 }
 
-.contenedor-navegacion {
-
-    background-color: #037bc0;
-    height: 60px;
+nav a:first-of-type {
+  border: 0;
 }
 
-.nav-principal {
-    padding: 1rem 0;
-    
+@media (min-width: 1024px) {
+  header {
     display: flex;
-    justify-content: space-between;
-    width: 1000px;
-}
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
 
-.hero {
-    background-image: url('../img/principal.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height: 55rem;
-}
+  .logo {
+    margin: 0 2rem 0 0;
+  }
 
-.categorias {
-    padding-top: 5rem;
-}
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
 
-.categorias h2 {
-    text-align: center;
-}
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
 
-.categoria a {
-    text-align: center;
-    display: block;
-    padding: 2rem;
-    font-size: 2rem;
-}
-
-.categoria a:hover {
-    background-color: #037bc0;
-    color: #FFF;
-    border-bottom-right-radius: 1rem;
-}
-
-.listado-categorias {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-/** Bloque Nosotros **/
-.sobre-nosotros {
-    background-image: linear-gradient(to right, transparent 50%, #037bc0 50%),
-        url('../img/nosotros.jpg');
-    background-position: left center;
-    padding: 10rem 0;
-    background-repeat: no-repeat;
-    background-size: 100%, 120rem;
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
 }
 </style>
