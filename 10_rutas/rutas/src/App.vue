@@ -4,19 +4,21 @@
     </header>
     <div class="contenedor-navegacion">
         <nav class=" nav-principal contenedor">
-            <a href="index.html" @click="ir('')">Productos</a>
-            <a href="nosotros.html">Clientes</a>
-            <a href="tienda.html">Tienda</a>
-            <a href="blog.html">Blog</a>
-            <a href="galeria.html">Galeria</a>
-            <a href="contacto.html">Contacto</a>
+            <a @click="ir('/Inicio')">Inicio</a>
+            <a @click="ir('/Cliente')">Clientes</a>
+            <a @click="ir('/Producto')">Productos</a>
+            <a href="blog.html">....</a>
+            <a href="galeria.html">.....</a>
+            <a @click="ir('/Contacto')">Contacto</a>
         </nav>
     </div>
     <RouterView />
 </template>
 <script setup >
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const ir =(url) =>{
-    
+    router.push({ path: url })
 }
 </script>
 
