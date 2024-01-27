@@ -2,8 +2,10 @@
   <header>
     <h3>Productos</h3>
   </header>
+
   <section>
-    <button type="submit">Enviar Mensaje</button>
+    <button  @click="registrarGuitarra()">REGISTRAR dddddddddddddd</button>
+    
     <table>
       <thead>
         <tr>
@@ -53,6 +55,24 @@
   </section>
 </template>
 <script setup lang="ts">
+import axios from 'axios'
+
+const registrarGuitarra = ()=>{
+  console.log('bootn de registro ')
+  let obj = {
+    nombre: "GUITARRA PRUEBAAAAA",
+    descripcion: "descripcion",
+    costo: 200.0,
+    fechaRegistro: "2024-01-01T04:00:00.000+00:00",
+    estadoId: 1000
+  }
+  const res =  axios.post(`https://quickpay.com.bo:9080/api/prueba-guitarra/registrar`,obj);
+
+}
+
+
+
+
 </script>
 <style scoped >  button {
     background-color: #3498db;
